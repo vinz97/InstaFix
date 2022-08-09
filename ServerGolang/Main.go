@@ -1,6 +1,8 @@
 package main
 
-import "database/sql"
+import (
+	"database/sql"
+)
 
 var sqlDB *sql.DB
 
@@ -12,5 +14,7 @@ func main() {
 	// server
 	startServer()
 
+
 }
+
 

@@ -17,6 +17,13 @@ func startServer() {
 	http.HandleFunc("/newticket", newticket)
 	http.HandleFunc("/getnome", getnome)
 	http.HandleFunc("/getickets", getickets)
+	http.HandleFunc("/getprofessionisti", getprofessionisti)
+	http.HandleFunc("/selectprofessionista", selectprofessionista)
+	http.HandleFunc("/getpreventivi", getpreventivi)
+	http.HandleFunc("/getinfopreventivo", getinfopreventivo)
+	http.HandleFunc("/acceptpreventivo", acceptpreventivo)
+	http.HandleFunc("/denypreventivo", denypreventivo)
+	http.HandleFunc("/downloadfattura", downloadfattura)
 	http.ListenAndServe(":8000", nil)
 
 }
@@ -98,4 +105,68 @@ func getickets (w http.ResponseWriter, req *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(resp)
 
+}
+
+func getprofessionisti(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	categoria := req.Form.Get("categoria")
+	resp := getProfessionistiQuery(sqlDB, categoria)
+	fmt.Println(resp)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(resp)
+}
+
+func selectprofessionista(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	mail := req.Form.Get("email")
+	idProfessionist := req.Form.Get("idProfessionista")
+	resp := selectProfessionistaQuery(sqlDB, mail, idProfessionist)
+	fmt.Println(resp)
+	fmt.Fprintf(w, resp)
+}
+
+func getpreventivi(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	mail := req.Form.Get("email")
+	resp := getPreventiviQuery(sqlDB, mail)
+	fmt.Println(resp)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(resp)
+}
+
+func getinfopreventivo(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	id := req.Form.Get("id")
+	resp := getInfoPreventivoQuery(sqlDB, id)
+	fmt.Println(resp)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(resp)
+}
+
+func acceptpreventivo(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	id := req.Form.Get("id")
+	resp := acceptPreventivoQuery(sqlDB, id)
+	fmt.Println(resp)
+	fmt.Fprintf(w, resp)
+}
+
+func denypreventivo(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	id := req.Form.Get("id")
+	resp := denyPreventivoQuery(sqlDB, id)
+	fmt.Println(resp)
+	fmt.Fprintf(w, resp)
+}
+
+func downloadfattura(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	email := req.Form.Get("mail")
+	id_ticket := req.Form.Get("id_ticket")
+	resp := downloadFatturaQuery(sqlDB, email, id_ticket)
+	fmt.Println(resp)
+	fmt.Fprintf(w, resp)
 }
