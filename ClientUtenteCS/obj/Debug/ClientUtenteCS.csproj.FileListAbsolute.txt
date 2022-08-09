@@ -13,3 +13,10 @@ C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtente
 C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.FormHomepage.resources
 C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormAddTicket.resources
 C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormViewTickets.resources
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.csproj.CopyComplete
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormSelezionaProfessionista.resources
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormViewPreventivi.resources
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormInfoPreventivo.resources
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormDownloadFattura.resources
