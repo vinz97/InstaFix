@@ -14,6 +14,7 @@ namespace ClientUtenteCS.Forms
 {
     public partial class FormAddTicket : Form
     {
+        public static bool selectProfessionista = false;
         public FormAddTicket()
         {
             InitializeComponent();
@@ -56,7 +57,9 @@ namespace ClientUtenteCS.Forms
                 else
                 {
                     MessageBox.Show("Il ticket è stato creato correttamente, si prega adesso di selezionare" +
-                        "un professionista", "Ticket OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        " un professionista", "Ticket OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FormSelezionaProfessionista.passingTicketInformation(titolo, categoria, descrizione);
+                    selectProfessionista = true;
                     this.Hide();
                 }
                 
@@ -67,8 +70,13 @@ namespace ClientUtenteCS.Forms
                 MessageBox.Show("Non è possibile contattare il server in questo momento. Riprova più tardi.",
                     "Server error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            Debug.WriteLine(selectProfessionista);
         }
 
+       
+        private void FormAddTicket_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

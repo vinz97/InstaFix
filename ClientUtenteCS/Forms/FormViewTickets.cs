@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using System.Diagnostics;
-
+using Newtonsoft.Json;
 
 namespace ClientUtenteCS.Forms
 {
     public partial class FormViewTickets : Form
     {
-        private Ticket[] arrayTickets;
+       // private Ticket[] arrayTickets;
         public FormViewTickets()
         {
             InitializeComponent();            
@@ -42,8 +42,19 @@ namespace ClientUtenteCS.Forms
                 };
                 var datiDaInviare = new FormUrlEncodedContent(mail);
                 var result = await getTickets.HttpPostAsync("http://localhost:8000/getickets", datiDaInviare);
-                // da risolvere: gestire il json in arrivo come un array di ticket
-              //  arrayTickets = result;
+
+                // utilizzo della funzione JsonConvert della libreria Newtonsoft scaricabile tramite pacchetti NuGet
+                // su VS: progetto/Gestisci pacchetti NuGet (non basta solo l'include)
+                List<Ticket> arrayTickets = JsonConvert.DeserializeObject<List<Ticket>>(result);
+                //        foreach (var item in arrayTickets) Console.WriteLine(item);
+                if (arrayTickets != null)
+                {
+                    foreach (var item in arrayTickets)
+                    {
+                        listViewTickets.Items.Add(new ListViewItem(new String[] { item.Id.ToString(), item.Titolo, item.Categoria, item.Stato }));
+
+                    }
+                }
             }
 
             catch (Exception exc)
@@ -54,5 +65,7 @@ namespace ClientUtenteCS.Forms
 
             }
         }
+
+      
     }
 }

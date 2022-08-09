@@ -40,33 +40,36 @@
             // textTitoloTicket
             // 
             this.textTitoloTicket.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textTitoloTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTitoloTicket.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             this.textTitoloTicket.Location = new System.Drawing.Point(123, 30);
             this.textTitoloTicket.Name = "textTitoloTicket";
-            this.textTitoloTicket.Size = new System.Drawing.Size(254, 19);
+            this.textTitoloTicket.Size = new System.Drawing.Size(254, 18);
             this.textTitoloTicket.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 33);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
+            this.label1.Location = new System.Drawing.Point(24, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(52, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Titolo";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 247);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
+            this.label3.Location = new System.Drawing.Point(24, 264);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Descrizione";
             // 
             // textBoxDescrTicket
             // 
             this.textBoxDescrTicket.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDescrTicket.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             this.textBoxDescrTicket.Location = new System.Drawing.Point(123, 148);
             this.textBoxDescrTicket.Multiline = true;
             this.textBoxDescrTicket.Name = "textBoxDescrTicket";
@@ -77,6 +80,7 @@
             // 
             this.buttonCreateTicket.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateTicket.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
             this.buttonCreateTicket.Location = new System.Drawing.Point(294, 402);
             this.buttonCreateTicket.Name = "buttonCreateTicket";
             this.buttonCreateTicket.Size = new System.Drawing.Size(107, 32);
@@ -87,6 +91,7 @@
             // 
             // comboBoxCategoriaTicket
             // 
+            this.comboBoxCategoriaTicket.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoriaTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCategoriaTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategoriaTicket.FormattingEnabled = true;
@@ -106,9 +111,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 92);
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
+            this.label2.Location = new System.Drawing.Point(24, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(80, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Categoria";
             // 
@@ -126,6 +132,7 @@
             this.Controls.Add(this.textTitoloTicket);
             this.Name = "FormAddTicket";
             this.Text = "FormSecondari";
+            this.Load += new System.EventHandler(this.FormAddTicket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

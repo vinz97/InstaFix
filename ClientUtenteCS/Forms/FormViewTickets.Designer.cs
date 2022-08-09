@@ -42,11 +42,12 @@
             this.colonnaTitolo,
             this.colonnaCategoria,
             this.colonnaStato});
+            this.listViewTickets.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTickets.FullRowSelect = true;
             this.listViewTickets.HideSelection = false;
-            this.listViewTickets.Location = new System.Drawing.Point(55, 60);
+            this.listViewTickets.Location = new System.Drawing.Point(33, 60);
             this.listViewTickets.Name = "listViewTickets";
-            this.listViewTickets.Size = new System.Drawing.Size(541, 367);
+            this.listViewTickets.Size = new System.Drawing.Size(595, 389);
             this.listViewTickets.TabIndex = 0;
             this.listViewTickets.UseCompatibleStateImageBehavior = false;
             this.listViewTickets.View = System.Windows.Forms.View.Details;
@@ -54,6 +55,7 @@
             // colonnaNumTicket
             // 
             this.colonnaNumTicket.Text = "Numero";
+            this.colonnaNumTicket.Width = 100;
             // 
             // colonnaTitolo
             // 
@@ -63,12 +65,12 @@
             // colonnaCategoria
             // 
             this.colonnaCategoria.Text = "Categoria";
-            this.colonnaCategoria.Width = 130;
+            this.colonnaCategoria.Width = 160;
             // 
             // colonnaStato
             // 
             this.colonnaStato.Text = "Stato";
-            this.colonnaStato.Width = 100;
+            this.colonnaStato.Width = 150;
             // 
             // FormViewTickets
             // 
