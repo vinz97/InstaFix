@@ -21,6 +21,8 @@ namespace ClientUtenteCS
         private int indiceTemp;
         private Form formAttivo;
         private string nomeUtente;
+        private bool addTicketBool;
+        private bool viewPreventiviBool;
 
         //costruttori
         public FormHomepage()
@@ -101,44 +103,131 @@ namespace ClientUtenteCS
         }
 
 
-        private void buttonAddTicket_Click(object sender, EventArgs e)
+        private async void buttonAddTicket_Click(object sender, EventArgs e)
         {
+            addTicketBool = true;
+            viewPreventiviBool = false;
             labelTitle.Text = "CREAZIONE TICKET";
             OpenForms(new Forms.FormAddTicket(), sender);
-            // implementare qui form per selezionare il professionista
+            while (true)
+            {
+                await Task.Delay(1000);
+                
+
+                if (Forms.FormAddTicket.selectProfessionista == true)
+                {
+                    labelTitle.Text = "SELEZIONA PROFESSIONISTA";
+                    OpenForms(new Forms.FormSelezionaProfessionista(), sender);
+                    break;
+                }
+                else if (addTicketBool == false)
+                {
+                    // per evitare che il loop non si chiuda qualora l'utente passi in altre funzioni senza
+                    // creare il ticket e selezionare il professionista
+                    break;
+                }
+            }
+    
+           
         }
 
         private void buttonViewTicket_Click(object sender, EventArgs e)
         {
-            OpenForms(new Forms.FormViewTickets(), sender);
-            labelTitle.Text = "I TUOI TICKET";
+            if (Forms.FormAddTicket.selectProfessionista == false)
+            {
+                addTicketBool = false;
+                viewPreventiviBool = false;
+                OpenForms(new Forms.FormViewTickets(), sender);
+                labelTitle.Text = "I TUOI TICKET";
+            }
+            else
+            {
+                MessageBox.Show("Per poter proseguire è necessario selezionare un professionista" +
+                    " per il ticket appena creato", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private void buttonPreventivi_Click(object sender, EventArgs e)
+        private async void buttonPreventivi_Click(object sender, EventArgs e)
         {
-            bottoneAttivo(sender);
-            labelTitle.Text = "I TUOI PREVENTIVI";
+            if (Forms.FormAddTicket.selectProfessionista == false)
+            {
+                addTicketBool = false;
+                viewPreventiviBool = true;
+                OpenForms(new Forms.FormViewPreventivi(), sender);
+                labelTitle.Text = "I TUOI PREVENTIVI";
+
+                while (true)
+                {
+                    await Task.Delay(1000);
+
+                    if (Forms.FormViewPreventivi.preventivoInfo == true)
+                    {
+                        labelTitle.Text = "DETTAGLI DEL PREVENTIVO";
+                        OpenForms(new Forms.FormInfoPreventivo(), sender);
+                        break;
+                    }
+                    else if (viewPreventiviBool == false)
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Per poter proseguire è necessario selezionare un professionista" +
+                    " per il ticket appena creato", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonFatture_Click(object sender, EventArgs e)
         {
-            bottoneAttivo(sender);
-            labelTitle.Text = "LE TUE FATTURE";
+            if (Forms.FormAddTicket.selectProfessionista == false)
+            {
+                addTicketBool = false;
+                viewPreventiviBool = false;
+                labelTitle.Text = "LE TUE FATTURE";
+                OpenForms(new Forms.FormDownloadFattura(), sender);
+            }
+            else
+            {
+                MessageBox.Show("Per poter proseguire è necessario selezionare un professionista" +
+                    " per il ticket appena creato", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonReview_Click(object sender, EventArgs e)
         {
-            bottoneAttivo(sender);
-            labelTitle.Text = "LE TUE OPINIONI";
+            if (Forms.FormAddTicket.selectProfessionista == false)
+            {
+                addTicketBool = false;
+                viewPreventiviBool = false;
+                bottoneAttivo(sender);
+                labelTitle.Text = "LE TUE OPINIONI";
+            }
+            else
+            {
+                MessageBox.Show("Per poter proseguire è necessario selezionare un professionista" +
+                    " per il ticket appena creato", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonBackHome_Click(object sender, EventArgs e)
         {
-            if (formAttivo != null)
+            if (Forms.FormAddTicket.selectProfessionista == false)
             {
-                formAttivo.Close();
+                addTicketBool = false;
+                viewPreventiviBool = false;
+                if (formAttivo != null)
+                {
+                    formAttivo.Close();
+                }
+                Reset();
             }
-            Reset();
+            else
+            {
+                MessageBox.Show("Per poter proseguire è necessario selezionare un professionista" +
+                    " per il ticket appena creato", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         // ritorno all'homepage
         private void Reset()
