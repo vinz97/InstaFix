@@ -20,3 +20,4 @@ C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtente
 C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormViewPreventivi.resources
 C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormInfoPreventivo.resources
 C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormDownloadFattura.resources
+C:\Users\nicus\source\repos\ClientUtenteCS\ClientUtenteCS\obj\Debug\ClientUtenteCS.Forms.FormRecensione.resources
