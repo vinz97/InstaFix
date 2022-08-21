@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
@@ -201,8 +197,8 @@ namespace ClientUtenteCS
             {
                 addTicketBool = false;
                 viewPreventiviBool = false;
-                bottoneAttivo(sender);
                 labelTitle.Text = "LE TUE OPINIONI";
+                OpenForms(new Forms.FormRecensione(), sender);
             }
             else
             {
@@ -254,7 +250,8 @@ namespace ClientUtenteCS
 
                 if (result.Equals("Errore generico"))
                 {
-                    nomeUtente = "utente";
+                    MessageBox.Show("Qualcosa è andato storto, per favore riavvia l'applicazione", "Utente" +
+                        " non riconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

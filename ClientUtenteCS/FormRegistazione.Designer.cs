@@ -61,7 +61,6 @@
             this.label1.Size = new System.Drawing.Size(170, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registrazione";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -81,7 +80,6 @@
             this.nomeTextBox.Name = "nomeTextBox";
             this.nomeTextBox.Size = new System.Drawing.Size(163, 22);
             this.nomeTextBox.TabIndex = 2;
-            this.nomeTextBox.TextChanged += new System.EventHandler(this.nomeText_TextChanged);
             // 
             // cognomeTextBox
             // 
@@ -314,7 +312,6 @@
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
-            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

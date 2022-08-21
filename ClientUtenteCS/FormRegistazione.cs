@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Net.Http;
@@ -20,21 +15,7 @@ namespace ClientUtenteCS
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nomeText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private async void registrateButton_Click(object sender, EventArgs e)
         {
             string nome = nomeTextBox.Text;
@@ -131,8 +112,8 @@ namespace ClientUtenteCS
                         MessageBoxIcon.Information);
                     new FormLogin().Show();
                     this.Hide();
-                    Credenziali c = new Credenziali(email, telefono, pass);
-                    Utente u = new Utente(nome, cognome, citta, indirizzo, c);
+                 //   Credenziali c = new Credenziali(email, telefono, pass);
+                 //   Utente u = new Utente(nome, cognome, citta, indirizzo, c);
                     
                 }
             }

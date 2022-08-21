@@ -81,6 +81,12 @@
     <Compile Include="Forms\FormInfoPreventivo.Designer.cs">
       <DependentUpon>FormInfoPreventivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormRecensione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRecensione.Designer.cs">
+      <DependentUpon>FormRecensione.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSelezionaProfessionista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <EmbeddedResource Include="Forms\FormInfoPreventivo.resx">
       <DependentUpon>FormInfoPreventivo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRecensione.resx">
+      <DependentUpon>FormRecensione.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSelezionaProfessionista.resx">
       <DependentUpon>FormSelezionaProfessionista.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,7 +172,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\home icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\output-onlinepngtools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elenco img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preventivo img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ricevuta img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recensione img.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
