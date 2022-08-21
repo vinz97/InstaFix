@@ -132,7 +132,6 @@
             this.Controls.Add(this.textTitoloTicket);
             this.Name = "FormAddTicket";
             this.Text = "FormSecondari";
-            this.Load += new System.EventHandler(this.FormAddTicket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

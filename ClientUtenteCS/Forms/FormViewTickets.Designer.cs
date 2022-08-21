@@ -80,7 +80,6 @@
             this.Controls.Add(this.listViewTickets);
             this.Name = "FormViewTickets";
             this.Text = "FormViewTickets";
-            this.Load += new System.EventHandler(this.FormViewTickets_Load);
             this.ResumeLayout(false);
 
         }

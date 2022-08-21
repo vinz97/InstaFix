@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -15,25 +9,22 @@ namespace ClientUtenteCS.Forms
 {
     public partial class FormSelezionaProfessionista : Form
     {
-        private static String title;
         private static String category;
-        private static String descr;
+
         public FormSelezionaProfessionista()
         {
             InitializeComponent();
             loadProfessionisti();
         }
-        public static void passingTicketInformation(String titolo, String categoria, String descrizione)
+        public static void passingTicketInformation(String categoria)
         {
-            title = titolo;
             category = categoria;
-            descr = descrizione;
         }
 
         private async void listViewProfessionisti_MouseClick(object sender, MouseEventArgs e)
         {
             // PRENDERE L'ID DEL PROFESSIONISTA DEL TICKET SCELTO
-            Debug.WriteLine(listViewProfessionisti.SelectedItems[0].SubItems[5]);
+
             for (int i = 0; i < listViewProfessionisti.Items.Count; i++)
             {
                 Richieste selectProfessionista = new Richieste();
@@ -110,7 +101,14 @@ namespace ClientUtenteCS.Forms
                     {
                         // la colonna 5 nella listview non è visualizzabile, serve solo per prelevare l'id
                         // del professionista cliccato dall'utente
-                        listViewProfessionisti.Items.Add(new ListViewItem(new String[] { item.Nome, item.Cognome, item.Professione, item.Recensione.ToString(), item.Citta, item.Id.ToString() }));
+                        if (item.Recensione <= 0)
+                        {
+                            listViewProfessionisti.Items.Add(new ListViewItem(new String[] { item.Nome, item.Cognome, item.Professione, "N/A", item.Citta, item.Id.ToString() }));
+                        }
+                        else
+                        {
+                            listViewProfessionisti.Items.Add(new ListViewItem(new String[] { item.Nome, item.Cognome, item.Professione, item.Recensione.ToString(), item.Citta, item.Id.ToString() }));
+                        }
                     }
                 }
             } catch (Exception exc)

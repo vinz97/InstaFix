@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using System.Diagnostics;
@@ -15,7 +9,7 @@ namespace ClientUtenteCS.Forms
 {
     public partial class FormViewTickets : Form
     {
-       // private Ticket[] arrayTickets;
+  
         public FormViewTickets()
         {
             InitializeComponent();            
@@ -23,13 +17,7 @@ namespace ClientUtenteCS.Forms
 
         }
 
-        private void FormViewTickets_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private async void loadTickets()
+            private async void loadTickets()
         {
             Richieste getTickets = new Richieste();
 

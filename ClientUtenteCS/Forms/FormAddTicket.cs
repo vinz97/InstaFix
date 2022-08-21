@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Net.Http;
@@ -58,7 +52,7 @@ namespace ClientUtenteCS.Forms
                 {
                     MessageBox.Show("Il ticket è stato creato correttamente, si prega adesso di selezionare" +
                         " un professionista", "Ticket OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormSelezionaProfessionista.passingTicketInformation(titolo, categoria, descrizione);
+                    FormSelezionaProfessionista.passingTicketInformation(categoria);
                     selectProfessionista = true;
                     this.Hide();
                 }
@@ -70,13 +64,8 @@ namespace ClientUtenteCS.Forms
                 MessageBox.Show("Non è possibile contattare il server in questo momento. Riprova più tardi.",
                     "Server error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            Debug.WriteLine(selectProfessionista);
         }
 
-       
-        private void FormAddTicket_Load(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }
