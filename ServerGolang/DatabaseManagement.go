@@ -430,7 +430,7 @@ func downloadFatturaQuery(datab *sql.DB, mail string, id_ticket string) string {
 	// si controlla se la fattura che l'utente vuole scaricare si riferisce a un ticket aperto da lui
 	// e anche se il ticket è stato completato (stato finito)
 	q2 := fmt.Sprintf("SELECT path_fattura FROM fatture WHERE id_ticket= (SELECT id_ticket FROM tickets"+
-		" WHERE id_ticket= %d AND id_utente= %d AND stato='finito')", idTicket, idUser)
+		" WHERE id_ticket= %d AND id_utente= %d AND (stato='finito' OR stato='votato'))", idTicket, idUser)
 	r2, err2 := datab.Query(q2)
 	if err2 != nil {
 		fmt.Println(err2)
