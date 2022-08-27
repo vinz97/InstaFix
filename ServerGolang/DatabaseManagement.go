@@ -49,6 +49,8 @@ func startDB() *sql.DB {
 	//defer db.Close()
 
 	if err != nil {
+		fmt.Println("Controllare la funzione startDB del file DatabaseManagement.go per essere sicuri" +
+			" di aver inserito il corretto host/porta, id/password e il nome del dataabase")
 		log.Fatal(err)
 	}
 
