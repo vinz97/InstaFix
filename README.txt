@@ -3,7 +3,7 @@ https://github.com/vinz97/InstaFix
 
 ISTRUZIONI PER ESEGUIRE IL CODICE
 
-ATTENZIONE: Le seguenti istruzioni sono state testate e verificate su ambiente Windows
+ATTENZIONE: Le istruzioni sul client in C# sono state testate e verificate su ambiente Windows
 Su SO diversi come Mac o Linux potrebbero non funzionare
 
 
@@ -29,3 +29,26 @@ N.B. è necessario avere GIT installato
 
 
 --- CLIENT PYTHON ---
+
+per poter avviare il client python è necessario installare le librerie utilizzate nel codice, di seguito sono riportate i comandi del package installer pip:
+pip install requests pip install tk pip install pyttk pip install Pillow pip install random pip install fpdf
+a questo punto è possibile recarsi nella cartella del client python e lanciarlo attraverso il comando: python3 app.py questo perchè app.py conterrà il main
+
+Se si utlizza Linux, i seguenti comandi sono utili per avviare Apache e SQL:
+sudo systemctl start apache2
+sudo service apache2 start
+sudo systemctl enable apache2
+start di mysql: mysql -u root -p
+
+
+
+ALTRI ISTRUZIONI IMPORTANTI SUL SERVER
+
+Per qualsiasi SO, se necessario bisogna modificare la riga 48 del file DATABASEMANAGEMENT.GO della funzione startDB inserendo le giuste credenziali per accedere a sql, l'host e la porta
+ATTENZIONE: il db deve essere già creato (anche senza tabelle) e il nome deve essere inserito sempre nella suddetta riga dopo lo /. 
+
+Su Windows: sul file ServerManagement.go alla riga 302 della funzione uploadfile indicare il path di una cartella chiamata "fatture" (da creare se non esiste) che
+deve essere inserita dentro htdocs di xamp (tipicamente si trova in C:\xamp\htdocs)
+
+Su Linux: sempre sullo stesso file stessa riga, inserire solamente "../fatture" come path. La cartella in questo caso dovrà essere creata nel percorso /var/www/html
+che è il path standard di Apache su Linux. In questo stesso percorso dovranno anche trovarsi tutti i file .go del server e runnare quindi da questo punto
