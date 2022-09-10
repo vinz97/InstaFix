@@ -84,24 +84,24 @@ func newticket(w http.ResponseWriter, req *http.Request) {
 	title := req.Form.Get("titolo")
 	category := req.Form.Get("categoria")
 	description := req.Form.Get("descrizione")
-	email := req.Form.Get("email")
-	resp := newticketQuery(sqlDB, title, category, description, email)
+	id := req.Form.Get("id_utente")
+	resp := newticketQuery(sqlDB, title, category, description, id)
 	fmt.Println(resp)
 	fmt.Fprintf(w, resp)
 }
 
 func getnome(w http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	mail := req.Form.Get("email")
-	resp := getnomeQuery(sqlDB, mail)
+	id := req.Form.Get("id")
+	resp := getnomeQuery(sqlDB, id)
 	fmt.Println(resp)
 	fmt.Fprintf(w, resp)
 }
 
 func getickets(w http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	mail := req.Form.Get("email")
-	resp := getTickets(sqlDB, mail)
+	id := req.Form.Get("id_utente")
+	resp := getTickets(sqlDB, id)
 	fmt.Println(resp)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -121,17 +121,17 @@ func getprofessionisti(w http.ResponseWriter, req *http.Request) {
 
 func selectprofessionista(w http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	mail := req.Form.Get("email")
+	idUser := req.Form.Get("id_utente")
 	idProfessionist := req.Form.Get("idProfessionista")
-	resp := selectProfessionistaQuery(sqlDB, mail, idProfessionist)
+	resp := selectProfessionistaQuery(sqlDB, idUser, idProfessionist)
 	fmt.Println(resp)
 	fmt.Fprintf(w, resp)
 }
 
 func getpreventivi(w http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	mail := req.Form.Get("email")
-	resp := getPreventiviQuery(sqlDB, mail)
+	idUser := req.Form.Get("id_utente")
+	resp := getPreventiviQuery(sqlDB, idUser)
 	fmt.Println(resp)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -166,17 +166,17 @@ func denypreventivo(w http.ResponseWriter, req *http.Request) {
 
 func downloadfattura(w http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	email := req.Form.Get("mail")
+	idUser := req.Form.Get("id_utente")
 	id_ticket := req.Form.Get("id_ticket")
-	resp := downloadFatturaQuery(sqlDB, email, id_ticket)
+	resp := downloadFatturaQuery(sqlDB, idUser, id_ticket)
 	fmt.Println(resp)
 	fmt.Fprintf(w, resp)
 }
 
 func getprofessionistidavotare(w http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	mail := req.Form.Get("email")
-	resp := getProfessionistiDaVotareQuery(sqlDB, mail)
+	idUser := req.Form.Get("id_utente")
+	resp := getProfessionistiDaVotareQuery(sqlDB, idUser)
 	fmt.Println(resp)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -185,11 +185,11 @@ func getprofessionistidavotare(w http.ResponseWriter, req *http.Request) {
 
 func voteprofessionista(w http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	email := req.Form.Get("mail")
+	idUser := req.Form.Get("id_utente")
 	id_ticket := req.Form.Get("id_ticket")
 	voto := req.Form.Get("voto")
 	id_professionista := req.Form.Get("id_professionista")
-	resp := voteProfessionistaQuery(sqlDB, email, id_ticket, voto, id_professionista)
+	resp := voteProfessionistaQuery(sqlDB, idUser, id_ticket, voto, id_professionista)
 	fmt.Println(resp)
 	fmt.Fprintf(w, resp)
 }
