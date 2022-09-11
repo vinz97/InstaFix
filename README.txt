@@ -1,4 +1,4 @@
-Progetto InstaFix APL made by Vincenzo PLUCHINO & Philip TAMBE'
+InstaFix project for APL made by Vincenzo PLUCHINO & Philip TAMBE'
 https://github.com/vinz97/InstaFix
 
 ISTRUZIONI PER ESEGUIRE IL CODICE
