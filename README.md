@@ -7,4 +7,4 @@ The architecture of this application is composed by 2 clients (one for the user 
 the professionist client in Python and the server was made with Go Language. <br />
 The server acts as an intermediary between the two clients and is the only entity that has direct access to the database; we have chosen to use a relation DB of the mySQL type <br />
 <br />
-PS the documentation is the pdf file in the "Documentation" folder, but it's in italian
+PS the documentation is the pdf file in the "Documentation" folder, but it's in italian. There's also a demonstration video of the C# client
